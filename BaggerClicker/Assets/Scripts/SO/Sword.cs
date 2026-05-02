@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,4 +32,40 @@ public class Sword : ScriptableObject
     [SerializeField] private int enhanceProbablity;
     [SerializeField] private int enhanceCost;
     [SerializeField] private int sellValue;
+
+    public object this[string index]
+    {
+        get
+        {
+            if (index == "swordName")
+            {
+                return swordName;
+            }
+            else if (index == "swordSprite")
+            {
+                return swordSprite;
+            }
+            else if (index == "enhanceCount")
+            {
+                return enhanceCount;
+            }
+            else if (index == "enhanceProbablity")
+            {
+                return enhanceProbablity;
+            }
+            else if (index == "enhanceCost")
+            {
+                return enhanceCost;
+            }
+            else if (index == "sellValue")
+            {
+                return sellValue;
+            }
+            else
+            {
+                D.LogError($"Sword 인덱서에 잘못된 접근이 발생했습니다. index로 입력된 값 : {index}", this);
+                return null;
+            }
+        }
+    }
 }
