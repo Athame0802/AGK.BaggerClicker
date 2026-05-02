@@ -24,7 +24,7 @@ Int 판매 금액
  */
 
 [CreateAssetMenu(fileName = "SwordData", menuName = "ScriptableObject/SwordScriptable/CreateSwordData")]
-public class Sword : ScriptableObject
+public class Sword : ScriptableObject, IIndexable
 {
     [SerializeField] private string swordName;
     [SerializeField] private Sprite swordSprite;
@@ -32,8 +32,10 @@ public class Sword : ScriptableObject
     [SerializeField] private int enhanceProbablity;
     [SerializeField] private int enhanceCost;
     [SerializeField] private int sellValue;
+    [SerializeField] private Sword nextSword;
+    [SerializeField] private Sword first;
 
-    public object this[string index]
+    public object this[string index] // Sword[변수이름] 입력시 변수 반환
     {
         get
         {
@@ -61,9 +63,17 @@ public class Sword : ScriptableObject
             {
                 return sellValue;
             }
+            else if (index == "next")
+            {
+                return nextSword;
+            }
+            else if (index == "first")
+            {
+                return first;
+            }
             else
             {
-                D.LogError($"Sword 인덱서에 잘못된 접근이 발생했습니다. index로 입력된 값 : {index}", this);
+                D.LogError($"Sword 인덱서에 잘못된 접근이 발생했습니다. 이는 심각한 오류를 발생시킬 수 있습니다. index로 입력된 값 : {index}", this);
                 return null;
             }
         }

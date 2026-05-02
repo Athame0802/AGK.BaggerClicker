@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556c6bd6419722648b546e631614ee45, type: 3}
+  m_Name: Sword_8_PirateCutlass
+  m_EditorClassIdentifier: 
+  swordName: "\uC5B4\uB290 \uD574\uC801\uC758 \uCEE4\uD2C0\uB7EC\uC2A4"
+  swordSprite: {fileID: 1907593904, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
+  enhanceCount: 8
+  enhanceProbablity: 40
+  enhanceCost: 170000
+  sellValue: 2000000
