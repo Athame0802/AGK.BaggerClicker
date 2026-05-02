@@ -15,6 +15,8 @@ MonoBehaviour:
   swordName: "\uB9C8\uAC80 \uD3EC\uC774\uC988\uB108"
   swordSprite: {fileID: -460413151, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
   enhanceCount: 12
-  enhanceProbablity: 18
+  enhanceProbability: 25
   enhanceCost: 1500000
-  sellValue: 75000000
+  sellValue: 750000000
+  nextSword: {fileID: 11400000, guid: f1b491cd60a3ef245b5d98484ca40046, type: 2}
+  first: {fileID: 11400000, guid: 2340224cc7a473c48b83004b003df77e, type: 2}

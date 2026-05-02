@@ -5,22 +5,24 @@ using UnityEngine;
 
 public class Enhanceable : ChangesWithAsset
 {
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
-        EnhanceManager.RenewalEvent += new Action(Renewal);
-        EnhanceManager.EnhanceSuccessEvent += new Action(Next);
-        EnhanceManager.EnhanceFailEvent += new Action(ResetToFirst);
+        MainManager.RenewalEvent += new Action(Renewal);
+        MainManager.ToNextSwordEvent += new Action(Next);
+        MainManager.ToFirstSwordEvent += new Action(ResetToFirst);
     }
 
     private void Next()
     {
-        data = (IIndexable)data["next"];
+        _data = (IIndexable)_data["next"];
+        data = _data;
     }
 
     private void ResetToFirst()
     {
-        data = (IIndexable)data["first"];
+        _data = (IIndexable)_data["first"];
+        data = _data;
     }
 }

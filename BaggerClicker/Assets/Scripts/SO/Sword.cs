@@ -29,7 +29,7 @@ public class Sword : ScriptableObject, IIndexable
     [SerializeField] private string swordName;
     [SerializeField] private Sprite swordSprite;
     [SerializeField] private int enhanceCount;
-    [SerializeField] private int enhanceProbablity;
+    [SerializeField] private int enhanceProbability;
     [SerializeField] private int enhanceCost;
     [SerializeField] private int sellValue;
     [SerializeField] private Sword nextSword;
@@ -51,9 +51,9 @@ public class Sword : ScriptableObject, IIndexable
             {
                 return enhanceCount;
             }
-            else if (index == "enhanceProbablity")
+            else if (index == "enhanceProbability")
             {
-                return enhanceProbablity;
+                return enhanceProbability;
             }
             else if (index == "enhanceCost")
             {
