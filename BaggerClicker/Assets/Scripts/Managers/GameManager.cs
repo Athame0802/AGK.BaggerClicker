@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    private GameObject _start;
     private GameObject _main;
     private GameObject _shop;
     private GameObject _end;
@@ -20,18 +21,20 @@ public class GameManager : MonoBehaviour
     private TMP_Text _errorTextComponent;
     private Button _enhanceButtonComponent;
     private Button _sellButtonComponent;
+    public GameObject makesMoneyButton { get; private set; }
     private GameObject[] _purchaseButtons = new GameObject[3];
     private Button[] _purchaseButtonsComponent = new Button[3];
-    
+
     public Sword EndSword;
 
     private GoldManager _goldManager;
 
-    private float _time;
+    public double Time;
 
 
     void Awake()
     {
+        _start = GameObject.Find("Start");
         _main = GameObject.Find("Main");
         _shop = GameObject.Find("Shop");
         _end = GameObject.Find("End");
@@ -42,11 +45,12 @@ public class GameManager : MonoBehaviour
         _sellButton = GameObject.Find("Sell Button");
         _errorText = GameObject.Find("Error Text");
         _preventerToggle = GameObject.Find("Preventer Toggle");
+        makesMoneyButton = GameObject.Find("Makes Money Button");
 
         _goldManager = FindAnyObjectByType<GoldManager>();
         _purchaseButtons = GameObject.FindGameObjectsWithTag("PurchaseButton");
 
-        if (_endButton == null || _main == null || _shop == null || _enhanceButton == null || _end == null || _endButton == null || _errorText == null || _goldManager == null || _preventerToggle == null)
+        if (_start == null || _endButton == null || _main == null || _shop == null || _enhanceButton == null || _end == null || _endButton == null || _errorText == null || _goldManager == null || _preventerToggle == null || makesMoneyButton == null)
         {
             D.LogError("게임오브젝트를 찾을 수 없습니다!", this);
         }
@@ -70,17 +74,25 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _main.SetActive(false);
         _shop.SetActive(false);
         _endButton.SetActive(false);
         _end.SetActive(false);
         _errorText.SetActive(false);
-
-        _goldManager.GoldPlus(100000); // 나중에 게임 시작시에만 주어지게 수정 필요
+        makesMoneyButton.SetActive(false);
     }
 
     void Update()
     {
-        _time += Time.deltaTime;
+        Time += UnityEngine.Time.deltaTime;
+    }
+
+    public void MoveForStart()
+    {
+        D.Log("MoveForStart 실행됨", this);
+
+        _start.SetActive(false);
+        _main.SetActive(true);
     }
 
     public void MoveToShop()
@@ -99,15 +111,6 @@ public class GameManager : MonoBehaviour
         _main.SetActive(true);
     }
 
-    public void End()
-    {
-        _main.SetActive(false);
-        _shop.SetActive(false);
-        _end.SetActive(true);
-
-        _endText.GetComponent<TMP_Text>().text = $"- END - \r\n최종 골드 : {_goldManager.Gold}\r\n총 플레이 타임 : {(int)(_time / 60)}분\r\n\r\n플레이해 주셔서 감사합니다.";
-    }
-
     public void EndCheck()
     {
         if ((Sword)MainManager.enhanceableComponent.data == EndSword)
@@ -119,9 +122,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void End()
+    {
+        _main.SetActive(false);
+        _shop.SetActive(false);
+        _end.SetActive(true);
+
+        _endText.GetComponent<TMP_Text>().text = $"- END - \r\n최종 골드 : {_goldManager.Gold}\r\n총 플레이 타임 : {(int)(Time / 60)}분\r\n\r\n플레이해 주셔서 감사합니다.";
+    }
+
     public void ShowErrorText(string message)
     {
         StartCoroutine(PrintErrorText(message));
+
+        if (_goldManager.Gold < 500)
+        {
+            makesMoneyButton.SetActive(true);
+        }
     }
 
     private IEnumerator PrintErrorText(string message)
@@ -146,5 +163,19 @@ public class GameManager : MonoBehaviour
         {
             purchaseButtonComponent.interactable = true;
         }
+    }
+
+    public void OnExitButtonClicked()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
+
+    public void SetMakesMoneyButtonActive(bool isOn)
+    {
+        makesMoneyButton.SetActive(isOn);
     }
 }

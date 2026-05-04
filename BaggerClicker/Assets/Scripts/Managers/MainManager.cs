@@ -16,7 +16,6 @@ public class MainManager : MonoBehaviour
     private GameManager _gameManager;
     private GoldManager _goldManager;
     private Toggle _preventerToggle;
-    private GameObject _makesMoneyButton;
 
     public List<Sword> SwordList = new(20);
     public int Preventer { get; set; }
@@ -27,17 +26,6 @@ public class MainManager : MonoBehaviour
         _gameManager = FindAnyObjectByType<GameManager>();
         _goldManager = FindAnyObjectByType<GoldManager>();
         _preventerToggle = FindAnyObjectByType<Toggle>();
-        _makesMoneyButton = GameObject.Find("Makes Money Button");
-
-        if (_makesMoneyButton == null)
-        {
-            D.LogError("_makesMoneyButton을 찾을 수 없습니다!", this);
-        }
-    }
-
-    void Start()
-    {
-        _makesMoneyButton.SetActive(false);
     }
 
     public void Enhance()
@@ -79,11 +67,6 @@ public class MainManager : MonoBehaviour
             enhanceableComponent.data = (Sword)FindAnyObjectByType<Enhanceable>().data;
 
             D.Log("강화 실패... 처음으로 돌아갑니다.", this);
-
-            if (_goldManager.Gold < 500)
-            {
-                _makesMoneyButton.SetActive(true);
-            }
         }
 
         RenewalEvent?.Invoke();

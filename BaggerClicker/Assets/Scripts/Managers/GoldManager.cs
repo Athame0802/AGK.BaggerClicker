@@ -52,9 +52,13 @@ public class GoldManager : MonoBehaviour
         Gold -= amount;
         RenewalEvent?.Invoke();
 
-        
-
         return true;
+    }
+
+    public void SetGold(ulong amount)
+    {
+        Gold = amount;
+        RenewalEvent?.Invoke();
     }
 
     public void MakesMoney()
