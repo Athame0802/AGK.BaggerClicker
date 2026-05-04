@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private TMP_Text _errorTextComponent;
     private Button _enhanceButtonComponent;
     private Button _sellButtonComponent;
+    private GameObject[] _purchaseButtons = new GameObject[3];
+    private Button[] _purchaseButtonsComponent = new Button[3];
     
     public Sword EndSword;
 
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
         _preventerToggle = GameObject.Find("Preventer Toggle");
 
         _goldManager = FindAnyObjectByType<GoldManager>();
+        _purchaseButtons = GameObject.FindGameObjectsWithTag("PurchaseButton");
 
         if (_endButton == null || _main == null || _shop == null || _enhanceButton == null || _end == null || _endButton == null || _errorText == null || _goldManager == null || _preventerToggle == null)
         {
@@ -51,6 +54,13 @@ public class GameManager : MonoBehaviour
         _errorTextComponent = _errorText.GetComponent<TMP_Text>();
         _enhanceButtonComponent = _enhanceButton.GetComponent<Button>();
         _sellButtonComponent = _sellButton.GetComponent<Button>();
+        
+        int index = 0;
+        foreach (GameObject purchaseButton in _purchaseButtons)
+        {
+            _purchaseButtonsComponent[index] = purchaseButton.GetComponent<Button>();
+            index++;
+        }
 
         if (_errorTextComponent == null || _enhanceButtonComponent == null || _sellButtonComponent == null)
         {
@@ -121,6 +131,10 @@ public class GameManager : MonoBehaviour
 
         _enhanceButtonComponent.interactable = false;
         _sellButtonComponent.interactable = false;
+        foreach (Button purchaseButtonComponent in _purchaseButtonsComponent)
+        {
+            purchaseButtonComponent.interactable = false;
+        }
 
         yield return new WaitForSecondsRealtime(1.5f); // 1.5초 동안 멈추기
 
@@ -128,5 +142,9 @@ public class GameManager : MonoBehaviour
 
         _enhanceButtonComponent.interactable = true;
         _sellButtonComponent.interactable = true;
+        foreach (Button purchaseButtonComponent in _purchaseButtonsComponent)
+        {
+            purchaseButtonComponent.interactable = true;
+        }
     }
 }

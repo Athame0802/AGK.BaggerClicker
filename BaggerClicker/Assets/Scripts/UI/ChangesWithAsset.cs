@@ -41,7 +41,7 @@ public class ChangesWithAsset : MonoBehaviour
             D.LogError($"잘못된 dataFieldName 입력입니다! 이는 심각한 오류를 발생시킬 수 있습니다. 현재 접근 : {_data}[{dataFieldName}], 담긴 값 : {_dataField}", this);
         }
 
-        D.Log("${gameObject}에서 {_data}의 {dataFieldName}를 불러오는데 성공함!", this);
+        D.Log($"{gameObject}에서 {_data}의 {dataFieldName}를 불러오는데 성공함!", this);
 
         if (_dataField is Sprite)
         {
