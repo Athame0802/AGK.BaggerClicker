@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(InputFieldOnlyNumber), typeof(TMP_InputField))]
+[RequireComponent(typeof(TMP_InputField))]
 public class InputFieldPurchase : MonoBehaviour
 {
     private TMP_InputField _inputComponent;
@@ -23,7 +23,10 @@ public class InputFieldPurchase : MonoBehaviour
             return;
         }
 
-        _inputComponent.text = "0";
+        if (result <= 0)
+        {
+            return;
+        }
 
         _shopManager.Purchase(result, productAsset);
     }
@@ -32,7 +35,8 @@ public class InputFieldPurchase : MonoBehaviour
     {
         if(!System.Int32.TryParse(_inputComponent.text, out int result))
         {
-            return;
+            _inputComponent.text = "0";
+            result = 0;
         }
 
         result++;
@@ -44,10 +48,14 @@ public class InputFieldPurchase : MonoBehaviour
     {
         if (!System.Int32.TryParse(_inputComponent.text, out int result))
         {
-            return;
+            _inputComponent.text = "0";
+            result = 0;
         }
 
-        result--;
+        if (result > 0)
+        {
+            result--;
+        }
 
         _inputComponent.text = result.ToString();
     }

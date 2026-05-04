@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 208811442}
   m_Layer: 5
   m_Name: Purchase Button
-  m_TagString: Untagged
+  m_TagString: PurchaseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1579,7 +1579,7 @@ GameObject:
   - component: {fileID: 317328264}
   m_Layer: 5
   m_Name: Purchase Button
-  m_TagString: Untagged
+  m_TagString: PurchaseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3679,7 +3679,7 @@ GameObject:
   - component: {fileID: 1138657717}
   m_Layer: 5
   m_Name: Purchase Button
-  m_TagString: Untagged
+  m_TagString: PurchaseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3747,7 +3747,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138657718}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1919669913}
+        m_TargetAssemblyTypeName: InputFieldPurchase, Assembly-CSharp
+        m_MethodName: InputEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138657718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6467,7 +6479,6 @@ GameObject:
   - component: {fileID: 1919669911}
   - component: {fileID: 1919669910}
   - component: {fileID: 1919669909}
-  - component: {fileID: 1919669912}
   - component: {fileID: 1919669913}
   m_Layer: 5
   m_Name: Purchase Amount Input Field
@@ -6547,32 +6558,20 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 9
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
-  m_RegexValue: 
+  m_CharacterValidation: 6
+  m_RegexValue: ^[0-9]*$
   m_GlobalPointSize: 18
   m_CharacterLimit: 2
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1919669913}
-        m_TargetAssemblyTypeName: InputFieldPurchase, Assembly-CSharp
-        m_MethodName: InputEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -6647,18 +6646,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919669907}
   m_CullTransparentMesh: 1
---- !u!114 &1919669912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919669907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d232a83aea12a48aa77bf0bb6d9bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1919669913
 MonoBehaviour:
   m_ObjectHideFlags: 0
