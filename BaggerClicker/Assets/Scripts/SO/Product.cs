@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "ProductData", menuName = "ScriptableObject/productScriptable/CreateProductData")]
 public class Product : ScriptableObject, IIndexable
 {
     [SerializeField] string productName;
+    [SerializeField] string productKoreanName;
     [SerializeField] Sprite productSprite;
-    [SerializeField] int productPrice;
+    [SerializeField] ulong productPrice;
 
     public object this[string index]
     {
@@ -15,6 +17,10 @@ public class Product : ScriptableObject, IIndexable
             if (index == "productName")
             {
                 return productName;
+            }
+            else if (index == "productKoreanName")
+            {
+                return productKoreanName;
             }
             else if (index == "productSprite")
             {

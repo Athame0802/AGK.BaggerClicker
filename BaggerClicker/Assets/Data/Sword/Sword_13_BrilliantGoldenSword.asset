@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556c6bd6419722648b546e631614ee45, type: 3}
+  m_Name: Sword_13_BrilliantGoldenSword
+  m_EditorClassIdentifier: 
+  swordName: "\uC5D0\uBEEC \uB3C4\uB974 \uBE0C\uB9AC\uC591\uB728"
+  swordSprite: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
+  enhanceCount: 13
+  enhanceProbability: 18
+  enhanceCost: 5000000
+  sellValue: 1800000000
+  nextSword: {fileID: 11400000, guid: 27c5ec14ed6fd474997479811ecff60f, type: 2}
+  first: {fileID: 11400000, guid: 2340224cc7a473c48b83004b003df77e, type: 2}

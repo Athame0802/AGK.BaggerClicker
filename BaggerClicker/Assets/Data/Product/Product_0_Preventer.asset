@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7271ef9f341da304a83bc27928b7a7c8, type: 3}
+  m_Name: Product_0_Preventer
+  m_EditorClassIdentifier: 
+  productName: Preventer
+  productKoreanName: "\uD30C\uAD34 \uBC29\uC9C0\uAD8C"
+  productSprite: {fileID: 21300000, guid: 941bf7d9a88097b4eaebe753ebd57d55, type: 3}
+  productPrice: 20000000

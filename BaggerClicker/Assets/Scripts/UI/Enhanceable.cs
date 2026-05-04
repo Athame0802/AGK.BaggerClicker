@@ -12,6 +12,7 @@ public class Enhanceable : ChangesWithAsset
         MainManager.RenewalEvent += new Action(Renewal);
         MainManager.ToNextSwordEvent += new Action(Next);
         MainManager.ToFirstSwordEvent += new Action(ResetToFirst);
+        MainManager.MoveToEvent += new Action<Sword>(MoveTo);
     }
 
     private void Next()
@@ -24,5 +25,19 @@ public class Enhanceable : ChangesWithAsset
     {
         _data = (IIndexable)_data["first"];
         data = _data;
+    }
+
+    private void MoveTo(Sword sword)
+    {
+        _data = sword;
+        data = _data;
+    }
+
+    void OnDestroy()
+    {
+        MainManager.RenewalEvent -= Renewal;
+        MainManager.ToNextSwordEvent -= Next;
+        MainManager.ToFirstSwordEvent -= ResetToFirst;
+        MainManager.MoveToEvent -= MoveTo;
     }
 }

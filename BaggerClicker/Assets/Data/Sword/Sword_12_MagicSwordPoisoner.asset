@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556c6bd6419722648b546e631614ee45, type: 3}
+  m_Name: Sword_12_MagicSwordPoisoner
+  m_EditorClassIdentifier: 
+  swordName: "\uB9C8\uAC80 \uD3EC\uC774\uC988\uB108"
+  swordSprite: {fileID: -460413151, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
+  enhanceCount: 12
+  enhanceProbability: 25
+  enhanceCost: 1500000
+  sellValue: 750000000
+  nextSword: {fileID: 11400000, guid: f1b491cd60a3ef245b5d98484ca40046, type: 2}
+  first: {fileID: 11400000, guid: 2340224cc7a473c48b83004b003df77e, type: 2}

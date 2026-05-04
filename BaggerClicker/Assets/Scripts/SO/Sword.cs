@@ -30,8 +30,8 @@ public class Sword : ScriptableObject, IIndexable
     [SerializeField] private Sprite swordSprite;
     [SerializeField] private int enhanceCount;
     [SerializeField] private int enhanceProbability;
-    [SerializeField] private int enhanceCost;
-    [SerializeField] private int sellValue;
+    [SerializeField] private ulong enhanceCost;
+    [SerializeField] private ulong sellValue;
     [SerializeField] private Sword nextSword;
     [SerializeField] private Sword first;
 

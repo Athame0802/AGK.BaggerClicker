@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556c6bd6419722648b546e631614ee45, type: 3}
+  m_Name: Sword_3_IronDagger
+  m_EditorClassIdentifier: 
+  swordName: "\uCCA0 \uB300\uAC70"
+  swordSprite: {fileID: -1041754904, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
+  enhanceCount: 3
+  enhanceProbability: 80
+  enhanceCost: 10000
+  sellValue: 15000
+  nextSword: {fileID: 11400000, guid: 27b1661f121dccc4b885aea209488a45, type: 2}
+  first: {fileID: 11400000, guid: 2340224cc7a473c48b83004b003df77e, type: 2}
