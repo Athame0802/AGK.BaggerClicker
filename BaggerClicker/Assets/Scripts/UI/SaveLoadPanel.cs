@@ -106,7 +106,7 @@ public class SaveLoadPanel : MonoBehaviour
             }
 
             // null이 아니고 isSaved가 true라면
-            descriptionText.text = $"돈 : {SaveManager.Instance.SaveArray[index].gold}원 / +{SaveManager.Instance.SaveArray[index].currentSword["enhanceCount"]} {SaveManager.Instance.SaveArray[index].currentSword["swordName"]} / 플레이 타임 : {(int)(SaveManager.Instance.SaveArray[index].time / 60)}";
+            descriptionText.text = $"돈 : {SaveManager.Instance.SaveArray[index].gold}원 / +{SaveManager.Instance.SaveArray[index].currentSword["enhanceCount"]} {SaveManager.Instance.SaveArray[index].currentSword["swordName"]} / 플레이 타임 : {(int)(SaveManager.Instance.SaveArray[index].time / 60)}분";
             
             index++;
         }
