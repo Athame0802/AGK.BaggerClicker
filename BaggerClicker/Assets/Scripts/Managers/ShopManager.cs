@@ -24,16 +24,20 @@ public class ShopManager : MonoBehaviour
 
         if ((string)product["productName"] == "Preventer")
         {
+            D.Log($"방지권이 {input}개 구매됨");
             _mainManager.Preventer += input;
+            _goldManager.Renewal();
         }
 
         else if ((string)product["productName"] == "MoveTo10")
         {
+            D.Log($"+10강 이동권이 구매됨");
             _mainManager.MoveTo(_mainManager.SwordList[10]);
         }
 
         else if ((string)product["productName"] == "MoveToEnd")
         {
+            D.Log($"종말로 향하는 별이 구매됨");
             _mainManager.MoveTo(_gameManager.EndSword);
         }
 

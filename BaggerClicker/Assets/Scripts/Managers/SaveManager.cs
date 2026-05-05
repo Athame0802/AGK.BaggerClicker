@@ -24,10 +24,10 @@ public class SaveManager : MonoBehaviour
     private SaveLoadPanel _saveLoadPanel;
 
     public SaveData[] SaveArray = new SaveData[3];
-    public SaveData CurrentSave = new SaveData();
+    public SaveData CurrentSave = new();
 
     private string _path;
-    private string[] _fileName = { "SaveData1", "SaveData2", "SaveData3" };
+    private readonly string[] _fileName = { "SaveData1", "SaveData2", "SaveData3" };
 
     private int _currentCheck = 0;
 
@@ -150,6 +150,16 @@ public class SaveManager : MonoBehaviour
         _gameManager.SetMakesMoneyButtonActive(CurrentSave.isMakesMoneyButtonOn);
     }
 
+    public void DuplicateSaveDataValue(SaveData first, SaveData second)
+    {
+        first.gold = second.gold;
+        first.preventer = second.preventer;
+        first.time = second.time;
+        first.currentSword = second.currentSword;
+        first.isMakesMoneyButtonOn = second.isMakesMoneyButtonOn;
+        first.isSaved = second.isSaved;
+    }
+    
     public void OnSaveOpenButtonClicked()
     {
         _saveLoadPanel.isSave = true;
@@ -167,13 +177,4 @@ public class SaveManager : MonoBehaviour
         _saveLoadPanel.SetSaveLoadPanelActive(false);
     }
 
-    public void DuplicateSaveDataValue(SaveData first, SaveData second)
-    {
-        first.gold = second.gold;
-        first.preventer = second.preventer;
-        first.time = second.time;
-        first.currentSword = second.currentSword;
-        first.isMakesMoneyButtonOn = second.isMakesMoneyButtonOn;
-        first.isSaved = second.isSaved;
-    }
 }

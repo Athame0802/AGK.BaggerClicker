@@ -29,13 +29,13 @@ public class GoldManager : MonoBehaviour
             Gold = ulong.MaxValue - 1;
             _gameManager.ShowErrorText($"골드 최대치에 도달했습니다!");
 
-            RenewalEvent?.Invoke();
+            Renewal();
             
             return;
         }
 
         Gold += amount;
-        RenewalEvent?.Invoke();
+        Renewal();
     }
 
     public bool GoldMinus(ulong amount)
@@ -50,7 +50,7 @@ public class GoldManager : MonoBehaviour
         }
 
         Gold -= amount;
-        RenewalEvent?.Invoke();
+        Renewal();
 
         return true;
     }
@@ -58,11 +58,16 @@ public class GoldManager : MonoBehaviour
     public void SetGold(ulong amount)
     {
         Gold = amount;
-        RenewalEvent?.Invoke();
+        Renewal();
     }
 
     public void MakesMoney()
     {
         GoldPlus(100);
+    }
+
+    public void Renewal()
+    {
+        RenewalEvent?.Invoke();
     }
 }

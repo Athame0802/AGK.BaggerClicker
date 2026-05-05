@@ -60,6 +60,7 @@ public class MainManager : MonoBehaviour
             { 
                 D.Log("파괴 방지권으로 강화 유지", this);
                 Preventer--;
+                _goldManager.Renewal();
                 return;
             }
 
