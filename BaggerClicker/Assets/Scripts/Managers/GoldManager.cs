@@ -70,4 +70,14 @@ public class GoldManager : MonoBehaviour
     {
         RenewalEvent?.Invoke();
     }
+
+    public void Test1()
+    {
+        SetGold(0);
+    }
+
+    public void Test2()
+    {
+        GoldPlus(1000000000);
+    }
 }
